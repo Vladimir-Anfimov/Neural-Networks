@@ -36,8 +36,9 @@ class Net(nn.Module):
         self.model = nn.Sequential(
             nn.Linear(784, 128),
             nn.ReLU(),
-            # nn.Dropout(0.5),
-            nn.Linear(128, 10)
+            # nn.Dropout(0.5) Nu ajuta la accuracy
+            nn.Linear(128, 10),
+            # nn.Softmax(dim=1) Am folosit CrossEntropyLoss care are deja Softmax inclus
         )
 
     def forward(self, x):
